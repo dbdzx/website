@@ -36,8 +36,8 @@ jobs:
         ECR_REPOSITORY: main
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
     
     - name: Deploy to EC2
       env:
@@ -52,7 +52,7 @@ jobs:
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
         ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
         echo "Login succsessfully!!!"
-        docker pull 517958743848.dkr.ecr.us-east-1.amazonaws.com/main:${ github.sha }
+        docker pull 517958743848.dkr.ecr.us-east-1.amazonaws.com/main:latest
         '
 
 
