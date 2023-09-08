@@ -52,9 +52,7 @@ jobs:
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
         ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
         echo "Login succsessfully!!!"
-        docker rmi -f 517958743848.dkr.ecr.us-east-1.amazonaws.com/main:latest
-        docker pull 517958743848.dkr.ecr.us-east-1.amazonaws.com/main:latest
-        docker run -d -p 80:5000 517958743848.dkr.ecr.us-east-1.amazonaws.com/main:latest
+        bash main.sh
         '
 
 
