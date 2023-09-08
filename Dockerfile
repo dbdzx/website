@@ -13,6 +13,8 @@ WORKDIR /app
 
 #Открываем порт
 EXPOSE 5000
+EXPOSE 443
+
 #Команда для запуска
 ENTRYPOINT [ "python" ]
 CMD ["main.py"]
