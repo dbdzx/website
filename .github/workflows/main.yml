@@ -53,6 +53,7 @@ jobs:
         ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
         echo "Login succsessfully!!!"
         docker pull 517958743848.dkr.ecr.us-east-1.amazonaws.com/main:latest
+        docker run 517958743848.dkr.ecr.us-east-1.amazonaws.com/main:latest
         '
 
 
